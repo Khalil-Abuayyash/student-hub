@@ -12,23 +12,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="uni_roles")
+@Table(name="uni_courses")
 public class UniCourse {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
 	@NotNull
 	private String lecture_notes;
+	
 	@NotNull
 	private String outline;
+	
 	@NotNull
 	private String video;
+	
     @Column(updatable=false)
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
+    
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="university_id")
     private University university;

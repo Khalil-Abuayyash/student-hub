@@ -14,7 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,43 +24,43 @@ public class Course {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	@Size(min=3, max=255, message="Course name is requird")
+	
+	@Size(min=3, max=255, message="Course name must be of three characters or more")
 	private String name;
+	
 	@Size(min=3,max=255, message="Instructor name is required")
 	private String instructor;
-	@NotNull
 	
-	private Integer room;
 	@Column(updatable=false)
-	@DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date createdAt;
-	@DateTimeFormat(pattern = "MM/dd/yyyy HH:mm:ss")
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
 	@ManyToMany
 	@JoinTable(
-			name = "enrollement",
+			name = "enrollements",
 	        joinColumns = @JoinColumn(name="course_id"),
 	        inverseJoinColumns = @JoinColumn(name="user_id")
 	)
 	private List<User> users;
+	
 	@ManyToMany
 	@JoinTable(
 			name = "uni_courses",
 	        joinColumns = @JoinColumn(name="course_id"),
 	        inverseJoinColumns = @JoinColumn(name="university_id")
 	)
-	private List<University> university;
+	private List<University> universities;
 	
     @PrePersist
     protected void onCreate(){this.createdAt = new Date();}
 	@PreUpdate
     protected void onUpdate(){this.updatedAt = new Date();}
     
-	public Course() {
-		this.createdAt = new Date();
-	    this.updatedAt = new Date();
-	}
+	public Course() {}
+	
 	public Long getId() {
 		return id;
 	}
@@ -80,12 +79,7 @@ public class Course {
 	public void setInstructor(String instructor) {
 		this.instructor = instructor;
 	}
-	public Integer getRoom() {
-		return room;
-	}
-	public void setRoom(Integer room) {
-		this.room = room;
-	}
+
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -105,6 +99,4 @@ public class Course {
 		this.users = users;
 	}
 
-	
-	
 }

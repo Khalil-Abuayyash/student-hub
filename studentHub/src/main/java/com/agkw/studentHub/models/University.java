@@ -3,6 +3,7 @@ package com.agkw.studentHub.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,8 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.sun.istack.NotNull;
 
 @Entity
@@ -23,15 +26,23 @@ public class University {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@NotNull
 	@Size(min = 4, message = "University Name must be at least 4 characters")
 	private String name;
+	
 	@NotNull
 	private String address;
+	
 	@ManyToMany
 	@JoinTable(name = "uni_courses", joinColumns = @JoinColumn(name = "university_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
-	private List<Course> course;
+	private List<Course> courses;
+	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
 
 	@PrePersist
@@ -68,12 +79,12 @@ public class University {
 		this.address = address;
 	}
 
-	public List<Course> getCourse() {
-		return course;
+	public List<Course> getCourses() {
+		return courses;
 	}
 
-	public void setCourse(List<Course> course) {
-		this.course = course;
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 
 	public Date getCreatedAt() {

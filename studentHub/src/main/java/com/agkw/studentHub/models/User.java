@@ -22,6 +22,8 @@ import javax.persistence.Transient;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.sun.istack.NotNull;
 
 @Entity
@@ -30,35 +32,46 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@NotNull
 	@Size(min = 4, message = "Name must be at least 4 characters")
 	private String name;
+
 	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
+
 	@NotNull
-	private int student_number;
+	private String student_number;
+
 	@Column(columnDefinition = "ENUM('MALE','FEMALE')")
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
-	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9.-]+$", message = "Invalid email pattern")
+
+	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+.edu$", message = "Email must end with edu")
 	private String email;
+
 	@Size(min = 8, message = "Password must be greater than 8 characters")
 	private String password;
+
 	@Transient
 	private String passwordConfirmation;
+
 	@Column(updatable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Post> posts;
+
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	private List<Comment> comments;
 
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "enrollement", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id")
-
-	)
+	@JoinTable(name = "enrollements", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "course_id"))
 	private List<Course> courses;
 
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -104,11 +117,11 @@ public class User {
 		this.birthday = birthday;
 	}
 
-	public int getStudent_number() {
+	public String getStudent_number() {
 		return student_number;
 	}
 
-	public void setStudent_number(int student_number) {
+	public void setStudent_number(String student_number) {
 		this.student_number = student_number;
 	}
 
@@ -168,4 +181,29 @@ public class User {
 		this.courses = courses;
 	}
 
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	
+	
 }
