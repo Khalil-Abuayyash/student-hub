@@ -24,7 +24,6 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -32,22 +31,20 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@NotNull
+	
 	@Size(min = 4, message = "Name must be at least 4 characters")
 	private String name;
-
-	@NotNull
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 
-	@NotNull
+	@Size(min = 7, message = "student_number must be at least 7 characters")
 	private String student_number;
 
 	@Column(columnDefinition = "ENUM('MALE','FEMALE')")
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
-
+	
 	@Pattern(regexp = "^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+.edu$", message = "Email must end with edu")
 	private String email;
 
@@ -204,6 +201,5 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
+
 }

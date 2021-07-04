@@ -7,7 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration Page</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/login.css">
 </head>
 <body class="main-bg">
@@ -18,28 +21,34 @@
                 <h3 class="text-whitesmoke">Student-Hub</h3>
                 <p class="text-whitesmoke">Sign up</p>
             <div class="container-content">
-                <form:errors path="user.*"/>
                 <form:form class="margin-t" method="POST" action="/registration" modelAttribute="user">
 
                     <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="name"/>
                         <form:input class="form-control"  placeholder="Name" path="name"/>
                     </div>
                     <div class="form-group">
-                        <form:password class="form-control" placeholder="********" path="password"/>
-                    </div>
-                    <div class="form-group">
-                        <form:password class="form-control" placeholder="********" path="passwordConfirmation"/>
-                    </div>
-                    <div class="form-group">
-                        <form:input type="date" class="form-control" path="birthday"/>
-                    </div>
-                    <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="email"/>
                         <form:input type="email" placeholder="student@university.edu" class="form-control" path="email"/>
                     </div>
                     <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="password"/>
+                        <form:password class="form-control" placeholder="********" path="password"/>
+                    </div>
+                    <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="passwordConfirmation"/>
+                        <form:password class="form-control" placeholder="********" path="passwordConfirmation"/>
+                    </div>
+                    <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="birthday"/>
+                        <form:input type="date" class="form-control" path="birthday"/>
+                    </div>
+                    <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="student_number"/>
                         <form:input class="form-control" placeholder="student number: 211503245" path="student_number"/>
                     </div>
                     <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="gender"/>
                         <form:select class="form-control" path="gender">
                             <form:option value="MALE">
                                 Male
@@ -51,10 +60,11 @@
                     </div>
 
                     <button type="submit" class="form-button button-l margin-b">Register!</button>
-    
-                    <!-- <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
-                    <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p> -->
-                    <a class="text-darkyellow" href="#"><small>Sign Up</small></a>
+                    <p class="text-whitesmoke text-center">
+                        <small>Already have an account?</small>
+                        <a class="text-darkyellow" href="/login"><small>Sign in</small></a>
+                    </p>
+                    
                 </form:form>
                 <p class="margin-t text-whitesmoke"><small> A.G.K.W &copy; 2021</small> </p>
             </div>

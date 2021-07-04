@@ -6,7 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Login Page</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="/css/login.css">
 </head>
 <body class="main-bg">
@@ -34,9 +37,12 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                     <button type="submit" class="form-button button-l margin-b">Sign In</button>
     
-                    <!-- <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
-                    <p class="text-whitesmoke text-center"><small>Do not have an account?</small></p> -->
-                    <a class="text-darkyellow" href="#"><small>Sign Up</small></a>
+                    <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
+                    <p class="text-whitesmoke text-center">
+                        <small>Do not have an account?</small>
+                        <a class="text-darkyellow" href="/registration"><small>Sign Up</small></a>
+                    </p>
+                    
                 </form>
                 <p class="margin-t text-whitesmoke"><small> Your Name &copy; 2018</small> </p>
             </div>
