@@ -26,6 +26,16 @@ public class Post_CommentServices {
 		return CR.findAll();
 	}
 	
+	public Post findPost(Long id) {			
+		return PR.findById(id).orElse(null);
+		
+	}
+	
+	public Comment findComment (Long id ) {
+		
+		return CR.findById(id).orElse(null);
+		
+	}
 	
 	
 
