@@ -25,6 +25,12 @@ public class UserController {
 		this.userService = userService;
 	}
 
+//	----------------------------------ABOUT US PAGE----------------------------------
+	@RequestMapping("/about")
+	public String aboutUs() {
+		return "aboutus.jsp";
+	}
+//	----------------------------------ABOUT US PAGE----------------------------------
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user) {
 		return "registrationPage.jsp";
