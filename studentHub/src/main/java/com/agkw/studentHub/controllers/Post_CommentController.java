@@ -9,11 +9,11 @@ import com.agkw.studentHub.services.Post_CommentServices;
 
 @Controller
 public class Post_CommentController {
-	private final Post_CommentServices PCS;
+	private final Post_CommentServices post_commentServices;
 
 	public Post_CommentController(Post_CommentServices pCS) {
 		
-		PCS = pCS;
+		post_commentServices = pCS;
 	}
 	
 //	@RequestMapping("/Course/{id}")

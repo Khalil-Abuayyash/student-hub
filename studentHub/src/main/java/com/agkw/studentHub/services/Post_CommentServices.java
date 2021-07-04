@@ -11,29 +11,29 @@ import com.agkw.studentHub.repositories.PostRepository;
 
 @Service
 public class Post_CommentServices {
-	private final PostRepository PR;
-	private final CommentRepository CR;
+	private final PostRepository postrepo;
+	private final CommentRepository commentrepo;
 	public Post_CommentServices(PostRepository pR, CommentRepository cR) {
-		PR = pR;
-		CR = cR;
+		postrepo = pR;
+		commentrepo = cR;
 	}
 	
 	public List<Post> allPost(){
-		return PR.findAll();
+		return postrepo.findAll();
 	}
 	
 	public List<Comment> allComment(){
-		return CR.findAll();
+		return commentrepo.findAll();
 	}
 	
 	public Post findPost(Long id) {			
-		return PR.findById(id).orElse(null);
+		return postrepo.findById(id).orElse(null);
 		
 	}
 	
 	public Comment findComment (Long id ) {
 		
-		return CR.findById(id).orElse(null);
+		return commentrepo.findById(id).orElse(null);
 		
 	}
 	
