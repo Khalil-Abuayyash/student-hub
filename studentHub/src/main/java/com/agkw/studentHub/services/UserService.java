@@ -64,4 +64,9 @@ public class UserService {
     public User findByUsername(String username) {
         return userRepository.findByName(username);
     }
+    
+    //4
+    public void saveUser(User u) {
+        userRepository.save(u);
+    }
 }

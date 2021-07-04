@@ -11,5 +11,5 @@ import com.agkw.studentHub.models.Course;
 public interface CourseRepoistory extends CrudRepository<Course, Long> {
 	
 	List<Course> findAll();
-
+	
 }
