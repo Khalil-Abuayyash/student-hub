@@ -5,12 +5,14 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -53,6 +55,10 @@ public class Course {
 	        inverseJoinColumns = @JoinColumn(name="university_id")
 	)
 	private List<University> universities;
+	
+	@OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+	private List<Post> posts;
+	
 	
     @PrePersist
     protected void onCreate(){this.createdAt = new Date();}
@@ -97,6 +103,18 @@ public class Course {
 	}
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+	public List<University> getUniversities() {
+		return universities;
+	}
+	public void setUniversities(List<University> universities) {
+		this.universities = universities;
+	}
+	public List<Post> getPosts() {
+		return posts;
+	}
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
 	}
 
 }
