@@ -86,11 +86,14 @@
 							<ul
 								class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
-									href="Home.html" style="padding: 10px;">Home</a></li>
+									href="/courses" style="padding: 10px;">Home</a></li>
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
-									href="Courses.html" style="padding: 10px;">Courses</a></li>
+									href="/courses" style="padding: 10px;">Courses</a></li>
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
-									href="Profile.html" style="padding: 10px;">Profile</a></li>
+									href="/${id}" style="padding: 10px;">Profile</a></li>
+									<li class="u-nav-item"><a
+							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
+							href="/logout" style="padding: 10px;">logout</a></li>
 							</ul>
 						</div>
 					</div>
