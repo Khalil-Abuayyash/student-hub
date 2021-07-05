@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,6 +32,31 @@ public class UserController {
 		return "aboutus.jsp";
 	}
 //	----------------------------------ABOUT US PAGE----------------------------------
+	
+//	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!User Profile Page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	@RequestMapping("/{id}")
+	public String profile(@PathVariable("id")Long id, Model model,Principal principal) {
+		String name = principal.getName();
+		User user = userService.findByUsername(name);
+		if(id == user.getId()) {
+			model.addAttribute("user",user);
+			model.addAttribute("courses", user.getCourses());
+			return "profile.jsp";
+		}
+		return "redirect:/" +user.getId();
+	}
+		
+	
+//	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!User Profile Page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//	++++++++++++++++++++++++++++++++User Logout++++++++++++++++++++++++++++++++++++++
+	@RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        // invalidate session
+        // redirect to login page
+        session.invalidate();
+        return "redirect:/"; 
+    }
+//	++++++++++++++++++++++++++++++++User Logout++++++++++++++++++++++++++++++++++++++
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user) {
 		return "registrationPage.jsp";

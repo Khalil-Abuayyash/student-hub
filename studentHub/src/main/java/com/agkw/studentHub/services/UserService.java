@@ -2,6 +2,7 @@ package com.agkw.studentHub.services;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Optional;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -69,4 +70,14 @@ public class UserService {
     public void saveUser(User u) {
         userRepository.save(u);
     }
+
+	public User findById(Long id) {
+		Optional<User> optionalUser = userRepository.findById(id);
+        if(optionalUser.isPresent()) {
+            return optionalUser.get();
+        } else {
+            return null;
+        }
+	}
+	
 }
