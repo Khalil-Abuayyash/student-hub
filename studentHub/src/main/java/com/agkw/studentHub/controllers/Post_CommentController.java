@@ -38,7 +38,7 @@ public class Post_CommentController {
 		this.userService = userService;
 	}
 
-	@RequestMapping("/Course/{id}")
+	@RequestMapping("/courses/{id}")
 	public String showCourse(@ModelAttribute("Post") Post p, @ModelAttribute("Comment") Comment c,
 			@PathVariable("id") Long id, Model model) {
 		Course course = courseservice.findCourse(id);
@@ -59,7 +59,7 @@ public class Post_CommentController {
 		String name = principal.getName(); 
 		User user = userService.findByUsername(name);
 		post_commentServices.createpost(p, id, user);
-		return "redirect:/Course/"+id;
+		return "redirect:/courses/"+id;
 
 	}
 
@@ -72,7 +72,7 @@ public class Post_CommentController {
 		String name = principal.getName(); 
 		User user = userService.findByUsername(name);
 		post_commentServices.createcomment(c,id,user);
-		return "redirect:/Course/"+id;
+		return "redirect:/courses/"+id;
 		
 		
 

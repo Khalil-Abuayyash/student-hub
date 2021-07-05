@@ -5,7 +5,6 @@ import java.security.Principal;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,16 +14,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.User;
+import com.agkw.studentHub.services.CourseService;
 import com.agkw.studentHub.services.UserService;
 
 @Controller
 public class UserController {
 
 	private UserService userService;
+	private CourseService courseService;
 
-	public UserController(UserService userService) {
+	public UserController(UserService userService,CourseService courseService) {
 		this.userService = userService;
+		this.courseService = courseService;
 	}
 
 //	----------------------------------ABOUT US PAGE----------------------------------
@@ -49,6 +52,18 @@ public class UserController {
 		
 	
 //	!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!User Profile Page!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	
+//	--------------------------------Delete course------------------------------------
+	@RequestMapping("/courses/{id}/delete")
+	public String destroyCourse(@PathVariable("id")Long id,Principal principal) {
+		String name = principal.getName();
+		User user = userService.findByUsername(name);
+		Course course = courseService.findCourse(id);
+		courseService.destroy(course, user);
+		return "redirect:/" +user.getId();
+	}
+//	--------------------------------Delete course------------------------------------
+	
 //	++++++++++++++++++++++++++++++++User Logout++++++++++++++++++++++++++++++++++++++
 	@RequestMapping("/logout")
     public String logout(HttpSession session) {
@@ -99,7 +114,8 @@ public class UserController {
 		// 1
 		String username = principal.getName();
 		model.addAttribute("currentUser", userService.findByUsername(username));
-		return "homePage.jsp";
+		return "courses.jsp";
 	}
+	
 
 }
