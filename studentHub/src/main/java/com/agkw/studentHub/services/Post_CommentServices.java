@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.agkw.studentHub.models.Comment;
 import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.Post;
+import com.agkw.studentHub.models.User;
 import com.agkw.studentHub.repositories.CommentRepository;
 import com.agkw.studentHub.repositories.CourseRepoistory;
 import com.agkw.studentHub.repositories.PostRepository;
@@ -47,12 +48,29 @@ public class Post_CommentServices {
 		
 	}
 
-	public void createpost(@Valid Post p, Long id) {
-		Post post=postrepo.save(p);
+	public void createpost(Post p, Long id, User user) {
+		Post post = new Post();
+		post.setText(p.getText());
+		post.setUser(user);
+		post=postrepo.save(post);
 		Course course=courseRepoistory.findById(id).orElse(null);
 		List<Post> posts= course.getPosts();
 		posts.add(post);
 		course.setPosts(posts);
+	}
+
+	public void createcomment(Comment c, Long id,User user) {
+		Comment comment =new Comment();
+		Post p=postrepo.findById(id).orElse(null);
+		comment.setPost(p);
+		comment.setText(c.getText());
+		comment.setUser(user);
+		comment=commentrepo.save(comment);
+		Post post=postrepo.findById(id).orElse(null);
+		List<Comment> comments= post.getComments();
+		comments.add(comment);
+		post.setComments(comments);
+		
 		
 		
 		

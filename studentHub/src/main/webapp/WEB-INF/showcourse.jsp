@@ -28,22 +28,22 @@
 				<form:button type="submit">Post</form:button>
 			</form:form>
 			<section>
-				<c:forEach items="${post}" var="p">
-					<p>Post by</p>
+				<c:forEach items="${posts}" var="p">
+					<p>Post by ${p.user.name}</p>
 					<p><c:out value="${p.text}"/></p>
 					<p>comments:</p>
 					<c:forEach items="${p.comments}" var="c">
+					<p>Comment by ${c.user.name}:</p>
 						<p>${c.text}</p>
-						<form:form method="post" action="/addcomment"
-							modelAttribute="Comment">
+					</c:forEach>
+					<form:form method="post" action="/addcomment/${p.id}" modelAttribute="Comment">
 							<form:label path="text">
 								<form:input path="text" />
 								<form:errors path="text" />
 
 							</form:label>
-							<form:button type="submit" value="post" />
+							<form:button type="submit" >Comment</form:button>
 						</form:form>
-					</c:forEach>
 				</c:forEach>
 
 
