@@ -73,6 +73,7 @@ public class UserController {
         return "redirect:/"; 
     }
 //	++++++++++++++++++++++++++++++++User Logout+++++++++++++++++++++++++++++++++++++
+	
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user) {
 		return "registrationPage.jsp";
@@ -114,7 +115,7 @@ public class UserController {
 		// 1
 		String username = principal.getName();
 		model.addAttribute("currentUser", userService.findByUsername(username));
-		return "courses.jsp";
+		return "redirect:/courses";
 	}
 	
 

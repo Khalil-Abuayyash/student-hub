@@ -28,11 +28,13 @@ public CourseController(CourseService courseService, UserService userService) {
 }
 
 @RequestMapping("/courses")
-public String showcourses(@ModelAttribute("course") Course course, Model model, HttpSession session ) {
+public String showcourses(@ModelAttribute("course") Course course, Model model, HttpSession session ,Principal principal) {
 	
 	List<Course> courses=courseService.allCourse();
-	
+	String name = principal.getName();
+	User user = userService.findByUsername(name);
 	model.addAttribute("courses",courses);
+	model.addAttribute(user);
 	
 	
 	return "courses.jsp";
@@ -51,7 +53,16 @@ public String addcourse(@PathVariable("id") long id,Principal principal, Model m
 	
 }
 
-
+//--------------------------------delete course------------------------------
+@RequestMapping("/courses/{id}/remove")
+public String destroyCourse(@PathVariable("id")Long id,Principal principal) {
+	String name = principal.getName();
+	User user = userService.findByUsername(name);
+	Course course = courseService.findCourse(id);
+	courseService.destroy(course, user);
+	return "redirect:/courses";
+}
+//--------------------------------delete course------------------------------
 
 
 
