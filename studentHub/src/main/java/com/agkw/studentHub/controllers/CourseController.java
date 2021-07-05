@@ -1,5 +1,6 @@
 package com.agkw.studentHub.controllers;
 
+import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -37,11 +38,10 @@ public String showcourses(@ModelAttribute("course") Course course, Model model, 
 	return "courses.jsp";
 }
 @RequestMapping("/addcourse/{id}")
-public String addcourse(@PathVariable("id") long id,HttpSession session, Model model) {
-	Long user_id=(Long) session.getAttribute("id");
+public String addcourse(@PathVariable("id") long id,Principal principal, Model model) {
+	String name = principal.getName();
+	User user = userService.findByUsername(name);
 	Course course=courseService.findCourse(id);
-	User user = courseService.findById(user_id);
-	
 	List<Course> courses = user.getCourses();
 	courses.add(course);
 	user.setCourses(courses);
