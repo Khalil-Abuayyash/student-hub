@@ -74,6 +74,7 @@
 					<ul class="u-nav u-spacing-20 u-unstyled u-nav-1">
 						<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
+<<<<<<< HEAD
 							href="Home.html" style="padding: 10px;">Home</a></li>
 						<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
@@ -96,6 +97,33 @@
 									href="Courses.html" style="padding: 10px;">Courses</a></li>
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
 									href="Profile.html" style="padding: 10px;">Profile</a></li>
+=======
+							href="/courses" style="padding: 10px;">Home</a></li>
+						<li class="u-nav-item"><a
+							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
+							href="/courses" style="padding: 10px;">Courses</a></li>
+						<li class="u-nav-item"><a
+							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
+							href="/${user.id}" style="padding: 10px;">Profile</a></li>
+						<li class="u-nav-item"><a
+							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
+							href="/logout" style="padding: 10px;">logout</a></li>
+					</ul>
+				</div>
+				<div class="u-custom-menu u-nav-container-collapse">
+					<div
+						class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+						<div class="u-sidenav-overflow">
+							<div class="u-menu-close"></div>
+							<ul
+								class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+								<li class="u-nav-item"><a class="u-button-style u-nav-link"
+									href="Home.html" style="padding: 10px;">Home</a></li>
+								<li class="u-nav-item"><a class="u-button-style u-nav-link"
+									href="Courses.html" style="padding: 10px;">Courses</a></li>
+								<li class="u-nav-item"><a class="u-button-style u-nav-link"
+									href="/${id}" style="padding: 10px;">Profile</a></li>
+>>>>>>> branch 'main' of https://github.com/Khalil-Abuayyash/student-hub.git
 							</ul>
 						</div>
 					</div>
@@ -141,6 +169,7 @@
 			<div class="u-list u-list-1">
 				<div class="u-repeater u-repeater-1">
 					<c:forEach items="${courses}" var="course">
+<<<<<<< HEAD
 						<div
 							class="u-align-center u-container-style u-list-item u-repeater-item">
 							<div
@@ -178,6 +207,30 @@
 
 
 
+=======
+
+						<div
+							class="u-align-center u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-8">
+								<span
+									class="u-custom-color-2 u-file-icon u-icon u-icon-circle u-spacing-10 u-icon-8"><img
+									src="images/R.png" alt=""></span>
+								<h3 class="u-align-center u-text u-text-custom-color-1 u-text-9">${course.name}</h3>
+								<a href="/courses/${course.id}"
+									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-15">learn
+									more</a> 
+								<c:choose>
+									<c:when test="${course.getUsers().indexOf(user)!= -1}">
+										<td><a href="/courses/${course.id }/remove"
+									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Un-enroll</a></td>
+									</c:when>
+									<c:otherwise>
+										<td><a href="/addcourse/${course.id}"
+									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Add</a></td>
+									</c:otherwise>
+								</c:choose>
+>>>>>>> branch 'main' of https://github.com/Khalil-Abuayyash/student-hub.git
 							</div>
 						</div>
 					</c:forEach>

@@ -166,7 +166,7 @@
 															href="courses/${course.id}">${course.name}</a>
 													</p>
 													<a href="courses/${course.id}/delete"
-														class="u-border-2 u-border-palette-2-light-2 u-btn u-button-style u-custom-color-3 u-btn-3">delete</a>
+														class="u-border-2 u-border-palette-2-light-2 u-btn u-button-style u-custom-color-3 u-btn-3">Un-enroll</a>
 												</div>
 											</div>
 										</c:forEach>

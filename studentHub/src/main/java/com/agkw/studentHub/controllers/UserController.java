@@ -8,9 +8,11 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -73,6 +75,7 @@ public class UserController {
         return "redirect:/"; 
     }
 //	++++++++++++++++++++++++++++++++User Logout+++++++++++++++++++++++++++++++++++++
+	
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user) {
 		return "registrationPage.jsp";
@@ -114,8 +117,28 @@ public class UserController {
 		// 1
 		String username = principal.getName();
 		model.addAttribute("currentUser", userService.findByUsername(username));
-		return "courses.jsp";
+		return "redirect:/courses";
 	}
 	
+	@GetMapping("/users/{id}/edit")
+	public String edit(@PathVariable("id") Long id, Model model, Principal principal) {
+		String name = principal.getName();
+		User user = userService.findByUsername(name);
+		if(id == user.getId()) {
+			model.addAttribute("user", user);
+			return "editProfile.jsp";
+		}
+		
+		return "redirect:/users/"+user.getId()+"/edit";
+	}
+	
+	@PutMapping("/users/{id}")
+	public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("user") User user, BindingResult result) {
+		if (result.hasErrors()) {
+			return "editProfile.jsp";
+		}
+		userService.updateUser(user);
+		return "redirect:/"+id;
+	}
 
 }
