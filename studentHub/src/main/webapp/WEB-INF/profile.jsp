@@ -97,7 +97,8 @@
 					<div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
 				</div>
 			</nav>
-			<h6 class="u-text u-text-1">Student Hub</h6>
+			
+			<h6 class="u-text u-text-1">Student-Hub</h6>
 			<form action="#" method="get"
 				class="u-border-1 u-border-grey-30 u-gradient u-search u-search-left u-search-1">
 				<button class="u-search-button" type="submit">

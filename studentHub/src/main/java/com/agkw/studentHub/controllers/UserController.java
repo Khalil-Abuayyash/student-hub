@@ -57,7 +57,7 @@ public class UserController {
         session.invalidate();
         return "redirect:/"; 
     }
-//	++++++++++++++++++++++++++++++++User Logout++++++++++++++++++++++++++++++++++++++
+//	++++++++++++++++++++++++++++++++User Logout+++++++++++++++++++++++++++++++++++++
 	@RequestMapping("/registration")
 	public String registerForm(@Valid @ModelAttribute("user") User user) {
 		return "registrationPage.jsp";
