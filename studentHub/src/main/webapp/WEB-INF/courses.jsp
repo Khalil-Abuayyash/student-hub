@@ -80,10 +80,10 @@
 							href="/courses" style="padding: 10px;">Courses</a></li>
 						<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
-							href="/${user.id}" style="padding: 10px;">Profile</a></li>
-						<li class="u-nav-item"><a
+							href="/${id }" style="padding: 10px;">Profile</a></li>
+							<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
-							href="/logout" style="padding: 10px;">logout</a></li>
+							href="/logout" style="padding: 10px;">Logout</a></li>
 					</ul>
 				</div>
 				<div class="u-custom-menu u-nav-container-collapse">
@@ -147,7 +147,6 @@
 			<div class="u-list u-list-1">
 				<div class="u-repeater u-repeater-1">
 					<c:forEach items="${courses}" var="course">
-
 						<div
 							class="u-align-center u-container-style u-list-item u-repeater-item">
 							<div
@@ -158,17 +157,33 @@
 								<h3 class="u-align-center u-text u-text-custom-color-1 u-text-9">${course.name}</h3>
 								<a href="/courses/${course.id}"
 									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-15">learn
-									more</a> 
+									more</a>
+
+
 								<c:choose>
-									<c:when test="${course.getUsers().indexOf(user)!= -1}">
-										<td><a href="/courses/${course.id }/remove"
-									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Un-enroll</a></td>
+									<c:when test="${course.getUsers().indexOf(user) == -1}">
+										<a href="/addcourse/${course.id}"
+											class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">add</a>
+
 									</c:when>
 									<c:otherwise>
-										<td><a href="/addcourse/${course.id}"
-									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Add</a></td>
+										<a href="/deletecourse/${course.id}"
+											class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">delete</a>
+
+
 									</c:otherwise>
 								</c:choose>
+
+
+
+
+
+
+
+
+
+
+
 							</div>
 						</div>
 					</c:forEach>
