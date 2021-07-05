@@ -32,6 +32,10 @@ public class UserService {
         if(!user.getPassword().equals(user.getPasswordConfirmation())) {
             result.rejectValue("passwordConfirmation", "Matches", "The Confirm Password must match Password!");
         }
+        if (userRepository.findByName(user.getName()) != null) {
+        	result.rejectValue("name", "Unique", "This username is already taken!");
+        }
+        
         if (user.getBirthday() != null) {
 	        LocalDate currentDate = LocalDate.now();
 	        LocalDate currentDateMinus18Years = currentDate.minusYears(18);
