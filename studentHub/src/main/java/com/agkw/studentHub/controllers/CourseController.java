@@ -28,23 +28,13 @@ public CourseController(CourseService courseService, UserService userService) {
 }
 
 @RequestMapping("/courses")
-<<<<<<< HEAD
 public String showcourses(@ModelAttribute("course") Course course, Model model,Principal principal) {
 	String name = principal.getName();
 	User user = userService.findByUsername(name);
-=======
-public String showcourses(@ModelAttribute("course") Course course, Model model, HttpSession session ,Principal principal) {
-	
->>>>>>> branch 'main' of https://github.com/Khalil-Abuayyash/student-hub.git
 	List<Course> courses=courseService.allCourse();
-	String name = principal.getName();
-	User user = userService.findByUsername(name);
+	
 	model.addAttribute("courses",courses);
-<<<<<<< HEAD
 	model.addAttribute("user",user);
-=======
-	model.addAttribute(user);
->>>>>>> branch 'main' of https://github.com/Khalil-Abuayyash/student-hub.git
 	
 	
 	return "courses.jsp";
@@ -73,16 +63,7 @@ public String deletecourse(@PathVariable("id") long id,Principal principal, Mode
 
 
 
-//--------------------------------delete course------------------------------
-@RequestMapping("/courses/{id}/remove")
-public String destroyCourse(@PathVariable("id")Long id,Principal principal) {
-	String name = principal.getName();
-	User user = userService.findByUsername(name);
-	Course course = courseService.findCourse(id);
-	courseService.destroy(course, user);
-	return "redirect:/courses";
-}
-//--------------------------------delete course------------------------------
+
 
 
 
