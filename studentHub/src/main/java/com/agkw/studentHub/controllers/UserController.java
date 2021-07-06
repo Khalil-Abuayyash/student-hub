@@ -146,5 +146,21 @@ public class UserController {
 		userService.updateUser(user);
 		return "redirect:/logout";
 	}
+	
+	@GetMapping("/admin/users/{id}/edit")
+	public String editUserByAdmin(@PathVariable("id") Long id, Model model) {
+		User user = userService.findById(id);
+		model.addAttribute("user", user);
+		return "editProfileByAdmin.jsp";
+	}
+	
+	@PutMapping("/admin/users/{id}")
+	public String updateUserByAdmin(@PathVariable("id") Long id, @Valid @ModelAttribute("user") User user, BindingResult result, Principal principal) {
+		if (result.hasErrors()) {
+			return "editProfileByAdmin.jsp";
+		}
+		userService.updateUser(user);
+		return "redirect:/admin";
+	}
 
 }
