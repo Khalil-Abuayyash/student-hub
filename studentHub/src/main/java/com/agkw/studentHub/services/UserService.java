@@ -93,4 +93,8 @@ public class UserService {
 		return userRepository.findAll();
 	}
 	
+	public void destroyUser(User user) {
+		userRepository.delete(user);
+	}
+		
 }

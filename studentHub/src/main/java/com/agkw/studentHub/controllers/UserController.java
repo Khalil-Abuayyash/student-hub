@@ -162,5 +162,12 @@ public class UserController {
 		userService.updateUser(user);
 		return "redirect:/admin";
 	}
+	
+	@GetMapping("/admin/users/{id}/delete")
+	public String destroyUser(@PathVariable("id") Long id) {
+		User user = userService.findById(id);
+		userService.destroyUser(user);
+		return "redirect:/admin";
+	}
 
 }

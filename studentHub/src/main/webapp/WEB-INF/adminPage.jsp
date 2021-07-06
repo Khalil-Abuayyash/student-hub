@@ -128,7 +128,7 @@
                     <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">user</td>
                     <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-21">
                       <a href="/admin/users/${user.id}/edit">Edit</a>
-                      <a href="">Delete</a>
+                      <a href="/admin/users/${user.id}/delete">Delete</a>
                     </td>
                 </tr>
               </c:forEach>
