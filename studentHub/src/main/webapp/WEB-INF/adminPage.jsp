@@ -88,32 +88,22 @@
             </colgroup>
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
               <tr style="height: 71px;">
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 1 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Course name</th>
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Action</th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
               </tr>
             </thead>
             <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
-              <tr style="height: 64px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">Item #1</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Description</td>
-                <td class="u-btn-rectangle u-hover-palette-1-dark-1 u-table-cell u-table-cell-6">&nbsp;&nbsp;</td>
-              </tr>
-              <tr style="height: 63px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-7">Item #2</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-8">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-9">Description</td>
-              </tr>
-              <tr style="height: 63px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-10">Item #3</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-11">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-12">Description</td>
-              </tr>
-              <tr style="height: 64px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-13">Item #4</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-14">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-15">Description</td>
-              </tr>
+              <c:forEach items="${courses}" var="course">
+                <tr style="height: 64px;">
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">${course.name}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Description</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">
+                    <a href="/courses/${course.id}/edit">Edit</a>
+                    <a href="">Delete</a>
+                  </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
         </div>
@@ -126,42 +116,24 @@
             </colgroup>
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-2">
               <tr style="height: 71px;">
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 1 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">User name</th>
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 3 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
               </tr>
             </thead>
             <tbody class="u-palette-5-dark-3 u-table-body u-table-body-2">
-              <tr style="height: 64px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-19">Item #1</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-21"></td>
-              </tr>
-              <tr style="height: 63px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-22">Item #2</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-23">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-24">Description</td>
-              </tr>
-              <tr style="height: 63px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-25">Item #3</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-26">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-27">Description</td>
-              </tr>
-              <tr style="height: 64px;">
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-28">Item #4</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-29">Description</td>
-                <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-30">Description</td>
-              </tr>
+              <c:forEach items="${users}" var="user">
+                <tr style="height: 64px;">
+                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-19">${user.name}</td>
+                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">user</td>
+                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-21">
+                      <a href="">Edit</a>
+                      <a href="">Delete</a>
+                    </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
-        </div>
-        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-1" href="https://nicepage.com">Edit</a>
-        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-2" href="https://nicepage.com">Delete</a>
-        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-3" href="https://nicepage.com">Edit</a>
-        <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-4" href="https://nicepage.com">Delete</a>
-        <a href="https://nicepage.com/k/youtube-website-templates" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-palette-2-base u-none u-radius-6 u-text-body-color u-text-hover-white u-btn-5">Create User</a>
-        <a href="https://nicepage.com/k/youtube-website-templates" class="u-border-2 u-border-palette-2-base u-btn u-btn-round u-button-style u-hover-palette-2-base u-none u-radius-6 u-text-body-color u-text-hover-white u-btn-6">Create Course</a>
-      </div>
     </section>
     
     

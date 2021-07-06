@@ -2,6 +2,7 @@ package com.agkw.studentHub.services;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -86,6 +87,10 @@ public class UserService {
 	
 	public void updateUser(User user) {
 		userRepository.save(user);
+	}
+	
+	public List<User> allUsers() {
+		return userRepository.findAll();
 	}
 	
 }

@@ -13,46 +13,49 @@ import com.agkw.studentHub.repositories.UserRepository;
 
 @Service
 public class CourseService {
-private final CourseRepoistory courserepo;
-private final UserRepository userRepoistory;
-private final EnrollementRepository enrollementRepository;
+	private final CourseRepoistory courserepo;
+	private final UserRepository userRepoistory;
+	private final EnrollementRepository enrollementRepository;
 
-public CourseService(CourseRepoistory courserepo, UserRepository userRepoistory, EnrollementRepository enrollementRepository) {
-	
-	this.courserepo = courserepo;
-	this.userRepoistory = userRepoistory;
-	this.enrollementRepository=enrollementRepository;
-}
+	public CourseService(CourseRepoistory courserepo, UserRepository userRepoistory,
+			EnrollementRepository enrollementRepository) {
 
-public List<Course> allCourse(){
-	
-	return courserepo.findAll();
-	
-}
+		this.courserepo = courserepo;
+		this.userRepoistory = userRepoistory;
+		this.enrollementRepository = enrollementRepository;
+	}
 
-public Course findCourse(Long id) {
-	
-	return courserepo.findById(id).orElse(null);
-}
+	public List<Course> allCourse() {
 
-public User findById (Long id) {
-      return userRepoistory.findById(id).orElse(null);
-  }
-public Course addCourse(Course course) {
-	
+		return courserepo.findAll();
 
-	return courserepo.save(course);
-}
-public Enrollement findEnrollement(Course course, User user) {
-	
-	return enrollementRepository.findByCourseAndUser(course,user).orElse(null);
-}
+	}
 
-public void destroy(Course course, User user) {
-	Enrollement enroll=  this.findEnrollement(course, user);
-	enrollementRepository.delete(enroll);
-}
+	public Course findCourse(Long id) {
 
+		return courserepo.findById(id).orElse(null);
+	}
 
+	public User findById(Long id) {
+		return userRepoistory.findById(id).orElse(null);
+	}
 
+	public Course addCourse(Course course) {
+
+		return courserepo.save(course);
+	}
+
+	public Enrollement findEnrollement(Course course, User user) {
+
+		return enrollementRepository.findByCourseAndUser(course, user).orElse(null);
+	}
+
+	public void destroy(Course course, User user) {
+		Enrollement enroll = this.findEnrollement(course, user);
+		enrollementRepository.delete(enroll);
+	}
+
+	public Course updateCourse(Course course) {
+		return courserepo.save(course);
+	}
 }

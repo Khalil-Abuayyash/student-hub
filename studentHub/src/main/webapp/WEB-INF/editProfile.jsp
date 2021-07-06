@@ -33,20 +33,16 @@
                         <form:input type="email" placeholder="student@university.edu" class="form-control" path="email"/>
                     </div>
                     <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="password"/>
-                        <form:password class="form-control" placeholder="********" path="password"/>
-                    </div>
-                    <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="passwordConfirmation"/>
-                        <form:password class="form-control" placeholder="********" path="passwordConfirmation"/>
-                    </div>
-                    <div class="form-group">
                         <form:errors class="text-whitesmoke" path="birthday"/>
                         <form:input type="date" class="form-control" path="birthday"/>
                     </div>
                     <div class="form-group">
                         <form:errors class="text-whitesmoke" path="student_number"/>
                         <form:input class="form-control" placeholder="student number: 211503245" path="student_number"/>
+                    </div>
+                    <div class="form-group">
+                        <form:errors class="text-whitesmoke" path="password"/>
+                        <form:input type="hidden" class="form-control" value="${user.password}" path="password"/>
                     </div>
                     <div class="form-group">
                         <form:errors class="text-whitesmoke" path="gender"/>
