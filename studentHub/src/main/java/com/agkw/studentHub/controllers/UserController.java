@@ -1,6 +1,7 @@
 package com.agkw.studentHub.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -88,8 +89,8 @@ public class UserController {
 		if (result.hasErrors()) {
 			return "registrationPage.jsp";
 		}
-//		userService.saveUserWithAdminRole(user);
-		userService.saveWithUserRole(user);
+		userService.saveUserWithAdminRole(user);
+//		userService.saveWithUserRole(user);
 		return "redirect:/login";
 	}
 
@@ -108,15 +109,20 @@ public class UserController {
 	@RequestMapping("/admin")
     public String adminPage(Principal principal, Model model) {
         String username = principal.getName();
-        model.addAttribute("currentUser", userService.findByUsername(username));
+        List<Course> courses = courseService.allCourse();
+        List<User> users = userService.allUsers();
+        model.addAttribute("courses", courses);
+        model.addAttribute("users", users);
         return "adminPage.jsp";
     }
 
 	@RequestMapping(value = { "/", "/home" })
-	public String home(Principal principal, Model model) {
+	public String home(Principal principal, Model model, HttpSession session) {
 		// 1
 		String username = principal.getName();
-		model.addAttribute("currentUser", userService.findByUsername(username));
+		User user = userService.findByUsername(username);
+		session.setAttribute("id", user.getId());
+//		model.addAttribute("currentUser", );
 		return "redirect:/courses";
 	}
 	
@@ -133,12 +139,12 @@ public class UserController {
 	}
 	
 	@PutMapping("/users/{id}")
-	public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("user") User user, BindingResult result) {
+	public String update(@PathVariable("id") Long id, @Valid @ModelAttribute("user") User user, BindingResult result, Principal principal) {
 		if (result.hasErrors()) {
 			return "editProfile.jsp";
 		}
 		userService.updateUser(user);
-		return "redirect:/"+id;
+		return "redirect:/logout";
 	}
 
 }

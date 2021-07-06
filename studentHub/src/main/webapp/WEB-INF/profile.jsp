@@ -156,7 +156,7 @@ $(document).ready(function(){
 									<br>University Number:&nbsp;
 									<c:out value="${user.student_number}" />
 								</p>
-								<a href="user/${id}/edit"
+								<a href="users/${id}/edit"
 									class="u-border-2 u-border-palette-2-light-2 u-btn u-button-style u-custom-color-3 u-btn-1">edit</a>
 							</div>
 						</div>
