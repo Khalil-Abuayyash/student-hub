@@ -1,3 +1,13 @@
+
+.main{
+	display: flex;
+}
+.showcourse{
+	flex: 4;
+}
+.showuni{
+	flex: 1;
+}
 .u-section-1 {
   background-image: linear-gradient(#333333, #1a1a1a);
 }

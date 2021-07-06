@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/admin1.css" media="screen">
 <link rel="stylesheet" href="/css/admin2.css" media="screen">
     <script class="u-script" type="text/javascript" src="/js/admin1.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="/js/admini2.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/admin2.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.19.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
@@ -33,7 +33,7 @@
   </head>
   <body data-home-page="About.html" data-home-page-title="About" class="u-body"><header class="u-clearfix u-gradient u-header u-header" id="sec-6d65"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="232" data-image-height="217">
-          <img src="images/copy_692142240.png" class="u-logo-image u-logo-image-1" data-image-width="68.267">
+          <img src="/images/copy_692142240.png" class="u-logo-image u-logo-image-1" data-image-width="68.267">
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700;">
@@ -45,9 +45,9 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/courses" style="padding: 10px;">Home</a>
-</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/courses" style="padding: 10px;">Courses</a>
-</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/${id}" style="padding: 10px;">Profile</a>
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="#" style="padding: 10px;">Add University</a>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="#" style="padding: 10px;">Add User</a>
+</li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="#" style="padding: 10px;">Add Course</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/logout" style="padding: 10px;">Logout</a>
 </li></ul>
           </div>
@@ -55,9 +55,9 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/courses" style="padding: 10px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/courses" style="padding: 10px;">Courses</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/${id}" style="padding: 10px;">Profile</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" style="padding: 10px;">Add University</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" style="padding: 10px;">Add User</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" style="padding: 10px;">Add Course</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/logout" style="padding: 10px;">Logout</a>
 </li></ul>
               </div>
@@ -101,9 +101,9 @@
                 <tr style="height: 64px;">
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">${uniCourse.course.name}</td>
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.university.name}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.outline}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.lecture_notes}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.video}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.outline}">  Course Outline</a></td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.lecture_notes}">  Lecture Notes</a></td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.video}">  Lecture Videos</a></td>
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">
                     <a href="/unicourses/${uniCourse.id}/edit">Edit</a>
                     <a href="/unicourses/${uniCourse.id}/delete">Delete</a>

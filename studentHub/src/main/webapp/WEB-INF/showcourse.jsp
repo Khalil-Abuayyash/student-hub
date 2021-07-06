@@ -11,11 +11,11 @@
 <meta name="description" content="">
 <meta name="page_type" content="np-template-header-footer-from-plugin">
 <title>Course Details</title>
-<link rel="stylesheet" href="css/profile2.css" media="screen">
-<link rel="stylesheet" href="css/profile1.css" media="screen">
-<script class="u-script" type="text/javascript" src="js/profile1.js"
+<link rel="stylesheet" href="/css/profile2.css" media="screen">
+<link rel="stylesheet" href="/css/profile1.css" media="screen">
+<script class="u-script" type="text/javascript" src="/js/profile1.js"
 	defer=""></script>
-<script class="u-script" type="text/javascript" src="js/profile2.js"
+<script class="u-script" type="text/javascript" src="/js/profile2.js"
 	defer=""></script>
 <meta name="generator" content="Nicepage 3.19.1, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
@@ -57,7 +57,7 @@
 		<div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
 			<a href="https://nicepage.com" class="u-image u-logo u-image-1"
 				data-image-width="232" data-image-height="217"> <img
-				src="images/copy_692142240.png" class="u-logo-image u-logo-image-1"
+				src="/images/copy_692142240.png" class="u-logo-image u-logo-image-1"
 				data-image-width="68.267">
 			</a>
 			<nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -142,6 +142,8 @@
 			</form>
 		</div>
 	</header>
+	<div class="main">
+	<div class = "showcourse">
 	<h1>
 		<c:out value="${course.name}" />
 	</h1>
@@ -183,9 +185,47 @@
 
 
 	</section>
+</div>
+<div class="showuni">
+<section class="u-align-center u-clearfix u-gradient u-section-1" id="carousel_c6d8">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-table u-table-responsive u-table-1">
+          <table class="u-table-entity u-table-entity-1">
+            <colgroup>
+              <col width="33.3%">
+              <col width="33.3%">
+              <col width="33.400000000000006%">
+            </colgroup>
+            <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
+              <tr style="height: 71px;">
 
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">University </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Outline </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Notes </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Videos </th>
 
+              </tr>
+            </thead>
+            <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
+              <c:forEach items="${uniCourses}" var="uniCourse">
+                <tr style="height: 64px;">
+                  
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.university.name}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.outline}">  Course Outline</a></td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.lecture_notes}">  Lecture Notes</a></td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.video}">  Lecture Videos</a></td>
 
+                </tr>
+              </c:forEach>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+</div>
+</div>
+<br>
+<br><br>
 
 
 	<footer class="u-clearfix u-footer u-gradient u-footer" id="sec-8224">

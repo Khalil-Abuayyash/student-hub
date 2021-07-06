@@ -4,6 +4,16 @@
  * Copyright 2014-2020 Froala Labs
  */
 
+.main{
+	display: flex;
+}
+.showcourse{
+	flex: 4;
+}
+.showuni{
+	flex: 1;
+}
+
 .fr-clearfix::after {
   clear: both;
   display: block;
