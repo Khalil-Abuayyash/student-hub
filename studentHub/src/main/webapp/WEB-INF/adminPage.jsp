@@ -89,7 +89,7 @@
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
               <tr style="height: 71px;">
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Course name</th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Instructor </th>
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
               </tr>
             </thead>
@@ -97,7 +97,7 @@
               <c:forEach items="${courses}" var="course">
                 <tr style="height: 64px;">
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">${course.name}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Description</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${course.instructor }</td>
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">
                     <a href="/courses/${course.id}/edit">Edit</a>
                     <a href="/courses/${course.id}/delete">Delete</a>
@@ -117,7 +117,7 @@
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-2">
               <tr style="height: 71px;">
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">User name</th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">University number</th>
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
               </tr>
             </thead>
@@ -125,7 +125,7 @@
               <c:forEach items="${users}" var="user">
                 <tr style="height: 64px;">
                     <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-19">${user.name}</td>
-                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">user</td>
+                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">${user.student_number}</td>
                     <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-21">
                       <a href="/admin/users/${user.id}/edit">Edit</a>
                       <a href="/admin/users/${user.id}/delete">Delete</a>
