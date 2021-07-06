@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.UniCourse;
@@ -106,11 +107,17 @@ public class CourseController {
 	}
 	
 	@PutMapping("unicourses/{id}")
-	public String updateUniCourse(@Valid @ModelAttribute("uniCourse") UniCourse uniCourse, BindingResult result) {
-		if (result.hasErrors()) {
-			return "editUniCourse.jsp";
-		}
+	public String updateUniCourse(@PathVariable("id") Long id, @RequestParam("outline") String outline) {
+		UniCourse uniCourse = courseService.findUniCourseById(id);
+		uniCourse.setOutline(outline);
 		courseService.updateUniCourse(uniCourse);
+		return "redirect:/admin/unicourses";
+	}
+	
+	@GetMapping("unicourses/{id}/delete")
+	public String deleteUniCourse(@PathVariable("id") Long id) {
+		UniCourse uniCourse = courseService.findUniCourseById(id);
+		courseService.destroyUniCourse(uniCourse);
 		return "redirect:/admin/unicourses";
 	}
 }

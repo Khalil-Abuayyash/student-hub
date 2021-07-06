@@ -22,31 +22,24 @@
                 <h3 class="text-whitesmoke">Student-Hub</h3>
                 <p class="text-whitesmoke">Edit Course</p>
             <div class="container-content">
-                <form:form class="margin-t" method="POST" action="/unicourses/${id}" modelAttribute="uniCourse">
+                <form class="margin-t" method="POST" action="/unicourses/${id}" modelAttribute="uniCourse">
                     <input type="hidden" name="_method" value="PUT">
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>  
                     <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="course"/>
-                        <form:input class="form-control"  type="hidden" value="${uniCourse.course.id}" path="course"/>
-                    </div>
-                    <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="university"/>
-                        <form:input class="form-control"  type="hidden"  value="${uniCourse.university.id}" path="university"/>
-                    </div>    
-                    <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="outline"/>
-                        <form:input class="form-control"  placeholder="outline url" path="outline"/>
+                        
+                        <input class="form-control"  placeholder="outline url" name="outline" value="${uniCourse.outline}"/>
                     </div>                   
                     <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="lecture_notes"/>
-                        <form:input class="form-control" placeholder="Lecture Notes url" path="lecture_notes"/>
+                        
+                        <input class="form-control" name="lecture_notes" value="${uniCourse.lecture_notes}"/>
                     </div>
                     <div class="form-group">
-                        <form:errors class="text-whitesmoke" path="video"/>
-                        <form:input class="form-control" placeholder="Lecture Videos url" path="video"/>
+                        
+                        <input class="form-control" name="video" value="${uniCourse.video}"/>
                     </div>
                     <button type="submit" class="form-button button-l margin-b">Update University Course!</button>
                     
-                </form:form>
+                </form>
                 <p class="margin-t text-whitesmoke"><small> A.G.K.W &copy; 2021</small> </p>
             </div>
         </div>

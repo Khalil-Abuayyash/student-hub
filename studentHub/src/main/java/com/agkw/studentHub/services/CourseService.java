@@ -78,4 +78,8 @@ public class CourseService {
 	public UniCourse updateUniCourse(UniCourse uniCourse) {
 		return uniCourseRepository.save(uniCourse);
 	}
+	
+	public void destroyUniCourse(UniCourse uniCourse) {
+		uniCourseRepository.delete(uniCourse);
+	}
 }
