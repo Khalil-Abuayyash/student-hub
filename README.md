@@ -6,10 +6,16 @@ student-hub is a platform built for students from different universities to shar
 
 
 ## Technologies Used
-1- Visual Studio Code
-2- Spring Tool Suite 4
-3-bootstrap - version 3.0/ 4.0
-4-jQuery and AJAX
+● Visual Studio Code
+
+● Spring Tool Suite 4
+
+● bootstrap - version 3.0/ 4.0
+
+●jQuery and AJAX
+
+●MySql Workbench 8.0 Ce
+
 
 ### Software Requirements:
 
