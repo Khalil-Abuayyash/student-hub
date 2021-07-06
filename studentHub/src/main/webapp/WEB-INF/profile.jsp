@@ -20,7 +20,17 @@
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 <script type="application/ld+json">{
 		"@context": "http://schema.org",
 		"@type": "Organization",
@@ -102,7 +112,7 @@
 			</nav>
 			
 			<h6 class="u-text u-text-1">Student-Hub</h6>
-			<form action="#" method="get"
+			<form action="/seach" method="get"
 				class="u-border-1 u-border-grey-30 u-gradient u-search u-search-left u-search-1">
 				<button class="u-search-button" type="submit">
 					<span class="u-search-icon u-spacing-10"> <svg
@@ -248,5 +258,9 @@
 			</div>
 		</div>
 	</footer>
+	<script type="text/javascript"
+        src="webjars/jquery/2.2.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
