@@ -35,6 +35,7 @@
 		"name": "",
 		"logo": "images/default-logo.png"
 }</script>
+
 <meta name="theme-color" content="#478ac9">
 <meta property="og:title" content="Home">
 <meta property="og:type" content="website">
@@ -109,7 +110,9 @@
 				</div>
 			</nav>
 			<h6 class="u-text u-text-1">Student Hub</h6>
-			<form action="#" method="get"
+			<!-- SEARCH -->
+			<!-- Search -->
+			<form action="#" method="GET"
 				class="u-border-1 u-border-grey-30 u-gradient u-search u-search-left u-search-1">
 				<button class="u-search-button" type="submit">
 					<span class="u-search-icon u-spacing-10"> <svg

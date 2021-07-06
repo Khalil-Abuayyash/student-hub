@@ -100,7 +100,7 @@
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Description</td>
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">
                     <a href="/courses/${course.id}/edit">Edit</a>
-                    <a href="">Delete</a>
+                    <a href="/courses/${course.id}/delete">Delete</a>
                   </td>
                 </tr>
               </c:forEach>

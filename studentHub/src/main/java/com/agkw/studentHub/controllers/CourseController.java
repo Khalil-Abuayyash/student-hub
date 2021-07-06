@@ -83,4 +83,11 @@ public class CourseController {
 		return "redirect:/admin";
 	}
 
+	@GetMapping("/courses/{id}/delete")
+	public String destroyCourse(@PathVariable("id") Long id) {
+		Course course = courseService.findCourse(id);
+		courseService.deleteCourse(course);
+		return "redirect:/admin";
+	}
+	
 }

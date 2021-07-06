@@ -58,4 +58,8 @@ public class CourseService {
 	public Course updateCourse(Course course) {
 		return courserepo.save(course);
 	}
+	
+	public void deleteCourse(Course course) {
+		courserepo.delete(course);
+	}
 }
