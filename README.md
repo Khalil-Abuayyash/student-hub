@@ -123,10 +123,16 @@ The Port number used will be 80.
 	to talk to each other privately.
 	● The system will provide additional pages containing courses’ 		descriptions for high school’s seniors in order to get an insight about 		universities and their courses. 
 ## Members
-Wadee Awwad
-Khalil AbuAyyash
-Ahmad Sufian
-Ghazal Salameh
+
+● Wadee Awwad
+●Khalil AbuAyyash
+● Ahmad Sufian
+●Ghazal Salameh
+	
+
+
+
+
 
 
 
