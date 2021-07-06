@@ -121,8 +121,12 @@ The Port number used will be 80.
 	other, by adding posts, pictures, events and comments.
 	● The system will provide a real-time chatting feature in order to 	allow the users
 	to talk to each other privately.
-	● The system will provide additional pages containing courses’ 		descriptions for high school’s seniors in order to get an insight about 	universities and their courses. 
-
+	● The system will provide additional pages containing courses’ 		descriptions for high school’s seniors in order to get an insight about 		universities and their courses. 
+## Members
+Wadee Awwad
+Khalil AbuAyyash
+Ahmad Sufian
+Ghazal Salameh
 
 
 
