@@ -91,4 +91,28 @@ public class UniCourse {
 		this.course = course;
 	}
 
+	public String getLecture_notes() {
+		return lecture_notes;
+	}
+
+	public void setLecture_notes(String lecture_notes) {
+		this.lecture_notes = lecture_notes;
+	}
+
+	public String getOutline() {
+		return outline;
+	}
+
+	public void setOutline(String outline) {
+		this.outline = outline;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
 }

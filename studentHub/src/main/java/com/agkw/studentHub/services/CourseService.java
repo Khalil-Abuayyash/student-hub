@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 
 import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.Enrollement;
+import com.agkw.studentHub.models.UniCourse;
 import com.agkw.studentHub.models.User;
 import com.agkw.studentHub.repositories.CourseRepoistory;
 import com.agkw.studentHub.repositories.EnrollementRepository;
+import com.agkw.studentHub.repositories.UniCourseRepository;
 import com.agkw.studentHub.repositories.UserRepository;
 
 @Service
@@ -16,13 +18,15 @@ public class CourseService {
 	private final CourseRepoistory courserepo;
 	private final UserRepository userRepoistory;
 	private final EnrollementRepository enrollementRepository;
+	private final UniCourseRepository uniCourseRepository;
 
 	public CourseService(CourseRepoistory courserepo, UserRepository userRepoistory,
-			EnrollementRepository enrollementRepository) {
+			EnrollementRepository enrollementRepository, UniCourseRepository uniCourseRepository) {
 
 		this.courserepo = courserepo;
 		this.userRepoistory = userRepoistory;
 		this.enrollementRepository = enrollementRepository;
+		this.uniCourseRepository = uniCourseRepository;
 	}
 
 	public List<Course> allCourse() {
@@ -61,5 +65,17 @@ public class CourseService {
 	
 	public void deleteCourse(Course course) {
 		courserepo.delete(course);
+	}
+	
+	public List<UniCourse> allUniCourses() {
+		return uniCourseRepository.findAll();	
+	}
+	
+	public UniCourse findUniCourseById(Long id) {
+		return uniCourseRepository.findById(id).orElse(null);
+	}
+	
+	public UniCourse updateUniCourse(UniCourse uniCourse) {
+		return uniCourseRepository.save(uniCourse);
 	}
 }

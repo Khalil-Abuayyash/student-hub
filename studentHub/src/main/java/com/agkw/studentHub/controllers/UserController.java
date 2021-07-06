@@ -108,7 +108,7 @@ public class UserController {
 	
 	@RequestMapping("/admin")
     public String adminPage(Principal principal, Model model) {
-        String username = principal.getName();
+//        String username = principal.getName();
         List<Course> courses = courseService.allCourse();
         List<User> users = userService.allUsers();
         model.addAttribute("courses", courses);
@@ -169,5 +169,5 @@ public class UserController {
 		userService.destroyUser(user);
 		return "redirect:/admin";
 	}
-
+	
 }

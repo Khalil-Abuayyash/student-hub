@@ -11,10 +11,10 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>About</title>
-    <link rel="stylesheet" href="css/admin1.css" media="screen">
-<link rel="stylesheet" href="css/admin2.css" media="screen">
-    <script class="u-script" type="text/javascript" src="js/admin1.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="js/admini2.js" defer=""></script>
+    <link rel="stylesheet" href="/css/admin1.css" media="screen">
+<link rel="stylesheet" href="/css/admin2.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/admin1.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/js/admini2.js" defer=""></script>
     <meta name="generator" content="Nicepage 3.19.1, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
@@ -89,47 +89,25 @@
             <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
               <tr style="height: 71px;">
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Course name</th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">University </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Outline </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Notes </th>
+                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Videos </th>
                 <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
               </tr>
             </thead>
             <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
-              <c:forEach items="${courses}" var="course">
+              <c:forEach items="${uniCourses}" var="uniCourse">
                 <tr style="height: 64px;">
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">${course.name}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">Description</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-4">${uniCourse.course.name}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.university.name}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.outline}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.lecture_notes}</td>
+                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.video}</td>
                   <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">
-                    <a href="/courses/${course.id}/edit">Edit</a>
-                    <a href="/courses/${course.id}/delete">Delete</a>
+                    <a href="/unicourses/${uniCourse.id}/edit">Edit</a>
+                    <a href="/unicourses/${uniCourse.id}/delete">Delete</a>
                   </td>
-                </tr>
-              </c:forEach>
-            </tbody>
-          </table>
-        </div>
-        <div class="u-table u-table-responsive u-table-2">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="33.3%">
-              <col width="33.3%">
-              <col width="33.400000000000006%">
-            </colgroup>
-            <thead class="u-palette-5-dark-2 u-table-header u-table-header-2">
-              <tr style="height: 71px;">
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">User name</th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Column 2 </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Actions</th>
-              </tr>
-            </thead>
-            <tbody class="u-palette-5-dark-3 u-table-body u-table-body-2">
-              <c:forEach items="${users}" var="user">
-                <tr style="height: 64px;">
-                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-19">${user.name}</td>
-                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-20">user</td>
-                    <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-21">
-                      <a href="/admin/users/${user.id}/edit">Edit</a>
-                      <a href="/admin/users/${user.id}/delete">Delete</a>
-                    </td>
                 </tr>
               </c:forEach>
             </tbody>

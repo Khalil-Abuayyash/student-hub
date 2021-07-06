@@ -3,7 +3,7 @@ package com.agkw.studentHub.controllers;
 import java.security.Principal;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -12,11 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.agkw.studentHub.models.Course;
+import com.agkw.studentHub.models.UniCourse;
 import com.agkw.studentHub.models.User;
 import com.agkw.studentHub.services.CourseService;
 import com.agkw.studentHub.services.UserService;
@@ -61,7 +62,7 @@ public class CourseController {
 		String name = principal.getName();
 		User user = userService.findByUsername(name);
 		Course course = courseService.findCourse(id);
-		List<Course> courses = user.getCourses();
+//		List<Course> courses = user.getCourses();
 
 		courseService.destroy(course, user);
 		return "redirect:/courses";
@@ -90,5 +91,26 @@ public class CourseController {
 		return "redirect:/admin";
 	}
 	
+	@RequestMapping("/admin/unicourses")
+	public String uniCourses(Model model) {
+		List<UniCourse> uniCourses = courseService.allUniCourses();
+		model.addAttribute("uniCourses", uniCourses);
+        return "adminUni.jsp";
+	}
 	
+	@GetMapping("/unicourses/{id}/edit")
+	public String editUniCourse(Model model, @PathVariable("id") Long id) {
+		UniCourse uniCourse = courseService.findUniCourseById(id);
+		model.addAttribute("uniCourse", uniCourse);
+		return "editUniCourse.jsp";
+	}
+	
+	@PutMapping("unicourses/{id}")
+	public String updateUniCourse(@Valid @ModelAttribute("uniCourse") UniCourse uniCourse, BindingResult result) {
+		if (result.hasErrors()) {
+			return "editUniCourse.jsp";
+		}
+		courseService.updateUniCourse(uniCourse);
+		return "redirect:/admin/unicourses";
+	}
 }
