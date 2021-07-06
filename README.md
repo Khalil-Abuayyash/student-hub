@@ -131,8 +131,11 @@ The Port number used will be 80.
 ## Members
 
 ● Wadee Awwad
+
 ●Khalil AbuAyyash
+
 ● Ahmad Sufian
+
 ●Ghazal Salameh
 	
 
