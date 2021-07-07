@@ -90,4 +90,8 @@ public class CourseService {
 	public University createUniversity(University university) {
 		return universityRepository.save(university);
 	}
+	
+	public List<UniCourse> unisCourse(Course course) {
+		return uniCourseRepository.findByCourse(course);
+	}
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.agkw.studentHub.models.Comment;
 import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.Post;
+import com.agkw.studentHub.models.UniCourse;
 import com.agkw.studentHub.models.User;
 import com.agkw.studentHub.repositories.UserRepository;
 import com.agkw.studentHub.services.CourseService;
@@ -43,8 +44,10 @@ public class Post_CommentController {
 			@PathVariable("id") Long id, Model model) {
 		Course course = courseservice.findCourse(id);
 		List<Post> posts = post_commentServices.allPost();
+		List<UniCourse> unisCourse = courseservice.unisCourse(course);
 		model.addAttribute("course", course);
 		model.addAttribute("posts", posts);
+		model.addAttribute("unisCourse", unisCourse);
 		return "showcourse.jsp";
 
 	}

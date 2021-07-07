@@ -41,7 +41,6 @@ public class CourseController {
 		String name = principal.getName();
 		User user = userService.findByUsername(name);
 		List<Course> courses = courseService.allCourse();
-
 		model.addAttribute("courses", courses);
 		model.addAttribute("user", user);
 

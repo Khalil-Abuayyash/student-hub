@@ -17,6 +17,18 @@
 	defer=""></script>
 <script class="u-script" type="text/javascript" src="/js/profile2.js"
 	defer=""></script>
+	<link rel="stylesheet" href="/css/courses1.css" media="screen">
+	<link rel="stylesheet" href="/css/courses2.css" media="screen">
+	<link rel="stylesheet" href="/css/header_nicepage.css" media="screen">
+	<link rel="stylesheet" href="/css/header.css" media="screen">
+	<script class="u-script" type="text/javascript"
+		src="/js/courses_jquery.js" defer=""></script>
+	<script class="u-script" type="text/javascript"
+		src="/js/courses_nicepage.js" defer=""></script>
+	<script class="u-script" type="text/javascript"
+		src="/js/header_jquery.js" defer=""></script>
+	<script class="u-script" type="text/javascript"
+		src="/js/header_nicepage.js" defer=""></script>
 <meta name="generator" content="Nicepage 3.19.1, nicepage.com">
 <link id="u-theme-google-font" rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
@@ -43,7 +55,7 @@
 		"@context": "http://schema.org",
 		"@type": "Organization",
 		"name": "",
-		"logo": "images/copy_692142240.png",
+		"logo": "/images/copy_692142240.png",
 		"sameAs": []
 }</script>
 <meta name="theme-color" content="#478ac9">
@@ -142,35 +154,74 @@
 			</form>
 		</div>
 	</header>
-	<div class="main">
-	<div class = "showcourse">
-	<h1>
-		<c:out value="${course.name}" />
-	</h1>
+	<section class="u-align-center u-clearfix u-gradient u-section-2"
+		id="sec-a0cc">
+		<div class="u-clearfix u-sheet u-sheet-1">
+			<h2 class="u-text u-text-custom-color-1 u-text-default u-text-1">${course.name}</h2>
+			<div class="u-list u-list-1">
+				<div class="u-repeater u-repeater-1">
+					<c:forEach items="${unisCourse}" var="uniCourse">
+						<div
+							class="u-align-center u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-8">
+								<span
+									class="u-custom-color-2 u-file-icon u-icon u-icon-circle u-spacing-10 u-icon-8"><img
+									src="/images/R.png" alt=""></span>
+								<h3 class="u-align-center u-text u-text-custom-color-1 u-text-9">${uniCourse.university.name}</h3>
+								<a href="${uniCourse.outline}"
+									class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-15">Outline</a>
 
-	<p>Post what you want about this course:</p>
-	<form:form method="post" action="/addPost/${course.id}"
-		modelAttribute="Post">
+										<a href="${uniCourse.lecture_notes}"
+											class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Lecture Notes</a>
 
-		<form:label path="text">
-			<form:input path="text" />
-			<form:errors path="text" />
+										<a href="${uniCourse.video}"
+											class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">Lecture Videos</a>
 
-		</form:label>
-		<form:button type="submit">Post</form:button>
-	</form:form>
-	<section>
-		<c:forEach items="${posts}" var="p">
-			<p>Post by ${p.user.name}</p>
-			<p>
-				<c:out value="${p.text}" />
-			</p>
-			<p>comments:</p>
-			<c:forEach items="${p.comments}" var="c">
-				<p>Comment by ${c.user.name}:</p>
-				<p>${c.text}</p>
-			</c:forEach>
-			<form:form method="post" action="/addcomment/${p.id}"
+
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+				<h2 class="u-text u-text-custom-color-1 u-text-default u-text-1">Posts:</h2>
+				<div class="u-repeater u-repeater-1">
+					
+					<div
+							class="u-align-center u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-8">
+								<span
+									class="u-custom-color-2 u-file-icon u-icon u-icon-circle u-spacing-10 u-icon-8"><img
+									src="/images/R.png" alt=""></span>
+									
+								<h3 class="u-align-center u-text u-text-custom-color-1 u-text-9">Create a post</h3>
+									<form:form method="post" action="/addPost/${course.id}"
+									modelAttribute="Post">
+							
+									<form:label path="text">
+										<form:input path="text" />
+										<form:errors path="text" />
+							
+									</form:label>
+									<form:button type="submit">Post</form:button>
+								</form:form>
+
+							</div>
+					
+					<c:forEach items="${posts}" var="post">
+						<div
+							class="u-align-center u-container-style u-list-item u-repeater-item">
+							<div
+								class="u-container-layout u-similar-container u-container-layout-8">
+								<span
+									class="u-custom-color-2 u-file-icon u-icon u-icon-circle u-spacing-10 u-icon-8"><img
+									src="/images/R.png" alt=""></span>
+								<h3 class="u-align-center u-text u-text-custom-color-1 u-text-9">${post.text}</h3>
+							
+								<c:forEach items="${post.comments}" var="comment">
+									<a href="#" class="u-active-none u-border-2 u-border-palette-2-light-1 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-text-custom-color-1 u-btn-16">${comment.text}</a>
+								</c:forEach>
+								<form:form method="post" action="/addcomment/${post.id}"
 				modelAttribute="Comment">
 				<form:label path="text">
 					<form:input path="text" />
@@ -179,54 +230,22 @@
 				</form:label>
 				<form:button type="submit">Comment</form:button>
 			</form:form>
-		</c:forEach>
+
+							</div>
+						</div>
+					</c:forEach>
+
+
+
+
+
+
+	
 
 
 
 
 	</section>
-</div>
-<div class="showuni">
-<section class="u-align-center u-clearfix u-gradient u-section-1" id="carousel_c6d8">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-table u-table-responsive u-table-1">
-          <table class="u-table-entity u-table-entity-1">
-            <colgroup>
-              <col width="33.3%">
-              <col width="33.3%">
-              <col width="33.400000000000006%">
-            </colgroup>
-            <thead class="u-palette-5-dark-2 u-table-header u-table-header-1">
-              <tr style="height: 71px;">
-
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">University </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Outline </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Notes </th>
-                <th class="u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-5-dark-1 u-table-cell">Lecture Videos </th>
-
-              </tr>
-            </thead>
-            <tbody class="u-palette-5-dark-3 u-table-body u-table-body-1">
-              <c:forEach items="${uniCourses}" var="uniCourse">
-                <tr style="height: 64px;">
-                  
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5">${uniCourse.university.name}</td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.outline}">  Course Outline</a></td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.lecture_notes}">  Lecture Notes</a></td>
-                  <td class="u-border-1 u-border-palette-5-dark-1 u-table-cell u-table-cell-5"><a href="${uniCourse.video}">  Lecture Videos</a></td>
-
-                </tr>
-              </c:forEach>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-</div>
-</div>
-<br>
-<br><br>
-
 
 	<footer class="u-clearfix u-footer u-gradient u-footer" id="sec-8224">
 		<div class="u-clearfix u-sheet u-sheet-1">
