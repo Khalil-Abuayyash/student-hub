@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -119,5 +120,19 @@ public class CourseController {
 		UniCourse uniCourse = courseService.findUniCourseById(id);
 		courseService.destroyUniCourse(uniCourse);
 		return "redirect:/admin/unicourses";
+	}
+	
+	@GetMapping("/courses/new")
+	public String newCourse(@ModelAttribute("course") Course course) {
+		return "newCourse.jsp";
+	}
+	
+	@PostMapping("courses")
+	public String createCourse(@Valid @ModelAttribute("course") Course course, BindingResult result) {
+		if (result.hasErrors()) {
+			return "newCourse.jsp";
+		}
+		courseService.updateCourse(course);
+		return "redirect:/admin";
 	}
 }

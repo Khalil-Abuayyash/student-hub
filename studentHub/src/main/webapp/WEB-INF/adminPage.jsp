@@ -74,7 +74,7 @@
 							href="#" style="padding: 10px;">Add User</a></li>
 						<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
-							href="#" style="padding: 10px;">Add Course</a></li>
+							href="/courses/new" style="padding: 10px;">Add Course</a></li>
 						<li class="u-nav-item"><a
 							class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base"
 							href="/logout" style="padding: 10px;">Logout</a></li>
@@ -92,7 +92,7 @@
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
 									href="#" style="padding: 10px;">Add User</a></li>
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
-									href="/#" style="padding: 10px;">Add Course</a></li>
+									href="/courses/new" style="padding: 10px;">Add Course</a></li>
 								<li class="u-nav-item"><a class="u-button-style u-nav-link"
 									href="/logout" style="padding: 10px;">Logout</a></li>
 							</ul>
