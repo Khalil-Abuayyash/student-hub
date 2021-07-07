@@ -138,15 +138,19 @@ The Port number used will be 80.
 
 ●Ghazal Salameh
 	
+![image](https://user-images.githubusercontent.com/82997200/124712371-eaae7900-df07-11eb-8f47-f0c8c195c553.png)
+
+
+![Capture page](https://user-images.githubusercontent.com/82997200/124712175-a1f6c000-df07-11eb-8776-f74e9ae4d4f8.PNG)
+![image](https://user-images.githubusercontent.com/82997200/124712522-1467a000-df08-11eb-8610-c54450feb6ee.png)
+![image](https://user-images.githubusercontent.com/82997200/124712574-28ab9d00-df08-11eb-9cc1-d577de27e488.png)
+![image](https://user-images.githubusercontent.com/82997200/124712756-65779400-df08-11eb-88b4-4fad218b4b43.png)
 
 
 
 
-https://user-images.githubusercontent.com/82997200/124614761-42ec6900-de7d-11eb-882a-fac6fe6512e8.mp4
 
 
-
-https://user-images.githubusercontent.com/82997200/124614769-454ec300-de7d-11eb-811e-82b1d83520ad.mp4
 
 
 
