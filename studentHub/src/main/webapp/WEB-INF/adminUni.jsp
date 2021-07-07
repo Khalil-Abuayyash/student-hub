@@ -45,7 +45,7 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="#" style="padding: 10px;">Add University</a>
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/universities/new" style="padding: 10px;">Add University</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="#" style="padding: 10px;">Add User</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/courses/new" style="padding: 10px;">Add Course</a>
 </li><li class="u-nav-item"><a class="u-border-active-palette-1-base u-border-hover-palette-1-base u-button-style u-nav-link u-text-active-custom-color-3 u-text-grey-90 u-text-hover-palette-2-base" href="/logout" style="padding: 10px;">Logout</a>
@@ -55,7 +55,7 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" style="padding: 10px;">Add University</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/universities/new" style="padding: 10px;">Add University</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="#" style="padding: 10px;">Add User</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/courses/new" style="padding: 10px;">Add Course</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/logout" style="padding: 10px;">Logout</a>

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.agkw.studentHub.models.Course;
 import com.agkw.studentHub.models.UniCourse;
+import com.agkw.studentHub.models.University;
 import com.agkw.studentHub.models.User;
 import com.agkw.studentHub.services.CourseService;
 import com.agkw.studentHub.services.UserService;
@@ -135,4 +136,20 @@ public class CourseController {
 		courseService.updateCourse(course);
 		return "redirect:/admin";
 	}
+	
+	@GetMapping("/universities/new")
+	public String newUniversity(@ModelAttribute("university") University university) {
+		return "newUniversity.jsp";
+	}
+	
+	@PostMapping("universities")
+	public String createUniversity(@Valid @ModelAttribute("university") University university, BindingResult result) {
+		if (result.hasErrors()) {
+			return "newUniversity.jsp";
+		}
+		courseService.createUniversity(university);
+		return "redirect:/admin";
+	}
+	
+	
 }
